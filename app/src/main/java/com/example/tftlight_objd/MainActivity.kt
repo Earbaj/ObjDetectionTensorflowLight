@@ -17,6 +17,7 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
 class MainActivity : AppCompatActivity() {
 
+
     lateinit var btnPrev: Button
     lateinit var btnPredict: Button
     lateinit var img_view: ImageView
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         var lebels = application.assets.open("labels.txt").bufferedReader().readLines()
 
+        // Button listener for pic image from gellary and show in image view
         btnPrev.setOnClickListener {
             var intent = Intent()
             intent.setAction(Intent.ACTION_GET_CONTENT)
@@ -46,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, 100)
         }
 
+        //Button listener for predict image with labels
         btnPredict.setOnClickListener {
 
             var tensorImage = TensorImage(DataType.UINT8)
